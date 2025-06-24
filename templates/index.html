@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Email Sender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cold Email Sender</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="{{ url_for('submit') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="user_name">Your Name (Optional):</label>
+                <input type="text" id="user_name" name="user_name" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="job_url">Job URL (Optional):</label>
+                <input type="url" id="job_url" name="job_url" placeholder="https://example.com/job">
+            </div>
+            <div class="form-group">
+                <label for="job_description">Job Description (Optional, if URL fails):</label>
+                <textarea id="job_description" name="job_description" placeholder="Paste job description here"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="recipient_email">Recipient Email (Required):</label>
+                <input type="email" id="recipient_email" name="recipient_email" required placeholder="hr@example.com">
+            </div>
+            <div class="form-group">
+                <label for="recipient_name">Recipient Name (Optional):</label>
+                <input type="text" id="recipient_name" name="recipient_name" placeholder="Jane Smith">
+            </div>
+            <div class="form-group">
+                <label for="recipient_designation">Recipient Designation (Optional):</label>
+                <input type="text" id="recipient_designation" name="recipient_designation" placeholder="Hiring Manager">
+            </div>
+            <div class="form-group">
+                <label for="company_name">Company Name (Required):</label>
+                <input type="text" id="company_name" name="company_name" required placeholder="Example Corp">
+            </div>
+            <div class="form-group">
+                <label for="job_role">Job Role (Required):</label>
+                <input type="text" id="job_role" name="job_role" required placeholder="Software Engineer">
+            </div>
+            <div class="form-group">
+                <label for="resume">Resume (PDF, Required):</label>
+                <input type="file" id="resume" name="resume" accept=".pdf" required>
+            </div>
+            <button type="submit">Generate Email Draft</button>
+        </form>
+    </div>
+</body>
+</html>
