@@ -14,7 +14,7 @@ Now with **unslop** you can send as many personalized emails as you want, everyd
 5. Perplexity sonar api for real-time search
 6. Integration with notion mcp server for tracking replies and status updates (optional, uses least privileges principle)
 
-> The tool is in active testing for production deployment.
 
 https://github.com/user-attachments/assets/88cf4bde-b11b-4e5e-b020-2a11432d8ce3
 
+> The tool is in active testing for production deployment, and will be live soon.
